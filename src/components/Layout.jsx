@@ -1,22 +1,26 @@
 import { NavLink, Outlet } from "react-router-dom";
 
+const setActiveLink = ({ isActive }) => {
+  return isActive ? "nav-link  link-primary" : "nav-link";
+};
+
 const Layout = () => {
   return (
     <div className="container">
       <header className="navbar navbar-expand-lg bg-body-tertiary">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <NavLink to="/" className="nav-link">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <NavLink to="/" className={setActiveLink}>
               home
             </NavLink>
           </li>
-          <li class="nav-item">
-            <NavLink to="/blog" className="nav-link">
+          <li className="nav-item">
+            <NavLink to="/blog" className={setActiveLink}>
               blog
             </NavLink>
           </li>
-          <li class="nav-item">
-            <NavLink to="/about" className="nav-link">
+          <li className="nav-item">
+            <NavLink to="/about" className={setActiveLink}>
               about
             </NavLink>
           </li>
