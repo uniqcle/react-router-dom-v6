@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
+import CustomLink from "../components/CustomLink";
 
 const setActiveLink = ({ isActive }) => {
   return isActive ? "nav-link  link-primary" : "nav-link";
@@ -20,9 +21,7 @@ const Layout = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/about" className={setActiveLink}>
-              about
-            </NavLink>
+            <CustomLink to="/about">about</CustomLink>
           </li>
         </ul>
       </header>
