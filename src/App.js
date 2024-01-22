@@ -6,21 +6,18 @@ import Blog from "./pages/Blog";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <>
-      <header>
-        <Link to="/">home</Link>
-        <Link to="/blog">blog</Link>
-        <Link to="/about">about</Link>
-      </header>
-
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Layout />}>
+          <Route index path="/" element={<Home />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
     </>
   );
