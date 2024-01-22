@@ -11,13 +11,17 @@ function App() {
   return (
     <>
       <header>
-        <a href="/">home</a>
-        <a href="/blog">blog</a>
-        <a href="/about">about</a>
+        <Link to="/">home</Link>
+        <Link to="/blog">blog</Link>
+        <Link to="/about">about</Link>
       </header>
-      <div>
-        <h2>get started...</h2>
-      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }
