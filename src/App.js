@@ -8,8 +8,11 @@ import Createpost from "./pages/Createpost";
 import Editpost from "./pages/Editpost";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import LoginPage from "./pages/Loginpage";
 
 import Layout from "./components/Layout";
+
+import { RequireAuth } from "./hoc/RequireAuth";
 
 function App() {
   return (
@@ -20,7 +23,15 @@ function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:id" element={<SinglePage />} />
           <Route path="blog/:id/edit" element={<Editpost />} />
-          <Route path="blog/new" element={<Createpost />} />
+          <Route
+            path="blog/new"
+            element={
+              <RequireAuth>
+                <Createpost />
+              </RequireAuth>
+            }
+          />
+          <Route path="login" element={<LoginPage />} />
           <Route path="about" element={<About />} />
           {/* redirect */}
           <Route path="about-us" element={<Navigate to="/about" replace />} />
