@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
@@ -22,6 +22,8 @@ function App() {
           <Route path="blog/:id/edit" element={<Editpost />} />
           <Route path="blog/new" element={<Createpost />} />
           <Route path="about" element={<About />} />
+          {/* redirect */}
+          <Route path="about-us" element={<Navigate to="/about" replace />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
