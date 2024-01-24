@@ -3,7 +3,8 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+	const [user, setUser] = useState(null);
+	
   const signin = (newUser, cb) => {
     setUser(newUser); //здесь user в качестве строки!
     cb(); //вызов переадресации navigate

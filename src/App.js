@@ -34,7 +34,12 @@ function App() {
               }
             />
             <Route path="login" element={<LoginPage />} />
-            <Route path="about" element={<About />} />
+
+            <Route path="about/*" element={<About />}>
+              <Route path="contacts" element={<p>Out contacts</p>} />
+              <Route path="team" element={<p> Our team</p>} />
+            </Route>
+
             {/* redirect */}
             <Route path="about-us" element={<Navigate to="/about" replace />} />
             <Route path="*" element={<NotFound />} />
